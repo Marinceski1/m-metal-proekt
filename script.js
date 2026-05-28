@@ -139,11 +139,11 @@ function updateWorkingStatus() {
 
     
     if (day >= 1 && day <= 5) {
-        if (hour >= 9 && hour < 17) isOpen = true;
+        if (hour >= 7 && hour < 16) isOpen = true;
     } 
 
     else if (day === 6) {
-        if (hour >= 9 && hour < 14) isOpen = true;
+        if (hour >= 7 && hour < 14) isOpen = true;
     }
 
     const statusElement = document.getElementById('status-indicator');
