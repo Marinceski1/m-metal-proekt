@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. МОБИЛНО ХАМБУРГЕР МЕНИ
+
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. СУПТИЛНИ АНИМАЦИИ ПРИ СКРОЛАЊЕ (SCROLL REVEAL)
+    
     const revealElements = document.querySelectorAll('.scroll-reveal');
     const checkScroll = () => {
         const triggerBottom = window.innerHeight * 0.9;
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', checkScroll);
     checkScroll();
 
-    // 3. ИНТЕРАКТИВЕН ФИЛТЕР ЗА ПРОИЗВОДИ (TABS)
+   
     const tabButtons = document.querySelectorAll('.tab-btn');
     const productCards = document.querySelectorAll('.product-card');
 
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. ПОП-АП ПРЕГЛЕД НА СЛИКИ (LIGHTBOX МОДАЛ)
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. МОЌНО И НЕВИДЛИВО ПРАЌАЊЕ ПРЕКУ WEB3FORMS (AJAX БЕЗ РЕФРЕШ)
+
     const form = document.getElementById('contact-form-web3');
     const button = document.getElementById('submit-btn');
 
@@ -128,4 +128,34 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+});
+
+function updateWorkingStatus() {
+    const now = new Date();
+    const day = now.getDay(); 
+    const hour = now.getHours();
+    
+    let isOpen = false;
+
+    
+    if (day >= 1 && day <= 5) {
+        if (hour >= 9 && hour < 17) isOpen = true;
+    } 
+
+    else if (day === 6) {
+        if (hour >= 9 && hour < 14) isOpen = true;
+    }
+
+    const statusElement = document.getElementById('status-indicator');
+    if (statusElement) {
+        if (isOpen) {
+            statusElement.innerHTML = '<span class="status-dot" style="background-color: #27ae60;"></span> <span style="color: #27ae60;">Отворено</span>';
+        } else {
+            statusElement.innerHTML = '<span class="status-dot" style="background-color: #c0392b;"></span> <span style="color: #c0392b;">Затворено</span>';
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateWorkingStatus();
 });
