@@ -139,7 +139,7 @@ function updateWorkingStatus() {
 
     
     if (day >= 1 && day <= 5) {
-        if (hour >= 7 && hour < 12) isOpen = true;
+        if (hour >= 7 && hour < 16) isOpen = true;
     } 
 
     else if (day === 6) {
